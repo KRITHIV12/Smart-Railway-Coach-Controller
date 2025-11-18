@@ -19,20 +19,27 @@ This project proposes a smart, Verilog-based controller that brings presence-dri
 # PROCEDURE
 **1)Define Requirements & States**
 Identify the inputs (presence, clock, reset), outputs (light_on, fan_on, display_state), and FSM states (e.g., IDLE, ACTIVE, WAIT_OFF).
+
 **2)Draw State Diagram**
 Create a visual state-transition diagram showing how you move between IDLE, ACTIVE, and WAIT_OFF based on the presence signal and timer events.
+
 **3)Write Verilog Modules**
 o	FSM module (state register + next-state logic + output logic) 
 o	Timer/counter module for delay when switching off
 o	Top-level module to integrate FSM and timer
+
 **4)Develop Testbench**
 Simulate scenarios: passenger enters, stays, leaves, and re-enters. Check FSM transitions, timer behavior, and outputs.
+
 **5)Run Functional Simulation**
 Use a Verilog simulator (like Icarus or ModelSim) and inspect waveforms. Verify that the FSM and timer behave correctly. 
+
 **6)Synthesize / (Optional) Deploy**
 If targeting FPGA, synthesize the design using a tool like Vivado. Verify resource usage and timing. 
+
 **7)Test on Hardware (If Available)**
 Load the design on an FPGA board and test using real or simulated input (e.g., a sensor) and output (LEDs, fans).
+
 **8)Refine & Document**
 Based on test results, tweak delay, state logic, or inputs. Document the design (state diagram, module architecture, testing procedure).
 
@@ -126,11 +133,15 @@ endmodule
 # OUTPUT
 <img width="1039" height="964" alt="Screenshot 2025-11-18 090818" src="https://github.com/user-attachments/assets/1f45bc8d-cc22-484d-89fb-9f770195ef77" />
 
-# RESULT 
+# EXPECTED RESULTS 
 The FSM switches correctly: IDLE → ACTIVE on passenger presence, then ACTIVE → WAIT_OFF when they leave, and finally back to IDLE once the timer expires.
+
 The timer module reliably counts the delay during WAIT_OFF, then signals “timer done.”
+
 During ACTIVE and WAIT_OFF states, lights and fans remain ON; in IDLE, they turn OFF.
+
 If a passenger returns before the timer ends, the system goes back to ACTIVE without turning off.
+
 Simulation waveforms clearly show state transitions, the timer counter, and output behavior.
 
 # CONCLUSION
