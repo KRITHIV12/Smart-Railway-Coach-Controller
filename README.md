@@ -17,23 +17,23 @@ This project proposes a smart, Verilog-based controller that brings presence-dri
 4. Sensors (PIR, ultrasonic)
 
 # PROCEDURE
-**Define Requirements & States**
+**1)Define Requirements & States**
 Identify the inputs (presence, clock, reset), outputs (light_on, fan_on, display_state), and FSM states (e.g., IDLE, ACTIVE, WAIT_OFF).
-**Draw State Diagram**
+**2)Draw State Diagram**
 Create a visual state-transition diagram showing how you move between IDLE, ACTIVE, and WAIT_OFF based on the presence signal and timer events.
-**Write Verilog Modules**
+**3)Write Verilog Modules**
 o	FSM module (state register + next-state logic + output logic) 
 o	Timer/counter module for delay when switching off
 o	Top-level module to integrate FSM and timer
-**Develop Testbench**
+**4)Develop Testbench**
 Simulate scenarios: passenger enters, stays, leaves, and re-enters. Check FSM transitions, timer behavior, and outputs.
-**Run Functional Simulation**
+**5)Run Functional Simulation**
 Use a Verilog simulator (like Icarus or ModelSim) and inspect waveforms. Verify that the FSM and timer behave correctly. 
-**Synthesize / (Optional) Deploy**
+**6)Synthesize / (Optional) Deploy**
 If targeting FPGA, synthesize the design using a tool like Vivado. Verify resource usage and timing. 
-**Test on Hardware (If Available)**
+**7)Test on Hardware (If Available)**
 Load the design on an FPGA board and test using real or simulated input (e.g., a sensor) and output (LEDs, fans).
-**Refine & Document**
+**8)Refine & Document**
 Based on test results, tweak delay, state logic, or inputs. Document the design (state diagram, module architecture, testing procedure).
 
 # FINITE STATE MEACHINE
