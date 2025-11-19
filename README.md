@@ -43,7 +43,6 @@ Load the design on an FPGA board and test using real or simulated input (e.g., a
 **8)Refine & Document**
 Based on test results, tweak delay, state logic, or inputs. Document the design (state diagram, module architecture, testing procedure).
 
-# FINITE STATE MEACHINE
 # PROGRAM
 ```
 module coach_controller(
